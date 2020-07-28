@@ -18,9 +18,12 @@ const Person : FC<Props> = memo(({
     },
     description,
   },
+  ...props
 }) => (
-  <div>
-    Выбран пользователь
+  <div {...props}>
+    <span className="topic_header">
+      Выбран пользователь
+    </span>
     {' '}
     <br />
     <b>
@@ -28,29 +31,39 @@ const Person : FC<Props> = memo(({
       {' '}
       {lastName}
     </b>
-    <div>
+    <div className="topic_header">
       Описание:
-      <span>
+    </div>
+    <div>
+      <span className="description">
         {description}
       </span>
     </div>
     <div>
-      Адрес проживания:
+      <span className="topic_header">
+        Адрес проживания:
+      </span>
       {' '}
       <b>{streetAddress}</b>
     </div>
     <div>
-      Город:
+      <span className="topic_header">
+        Город:
+      </span>
       {' '}
       <b>{city}</b>
     </div>
     <div>
-      Провинция/штат:
+      <span className="topic_header">
+        Провинция/штат:
+      </span>
       {' '}
       <b>{state}</b>
     </div>
     <div>
-      Индекс:
+      <span className="topic_header">
+        Индекс:
+      </span>
       {' '}
       <b>{zip}</b>
     </div>
@@ -58,5 +71,12 @@ const Person : FC<Props> = memo(({
 ));
 
 export default styled(Person)`
-
+    margin-top: 10px;
+    
+    border-radius: 5px;
+    background-color: #f6f8fa;
+    padding 10px;
+    .topic_header{
+        font-family: 'Roboto', sans-serif;
+    }
 `;
